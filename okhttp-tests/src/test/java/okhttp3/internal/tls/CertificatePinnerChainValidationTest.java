@@ -138,6 +138,8 @@ public final class CertificatePinnerChainValidationTest {
     Response response1 = call1.execute();
     assertEquals("abc", response1.body().string());
 
+    Thread.sleep(250);
+
     // Confirm that a second request also succeeds. This should detect caching problems.
     server.enqueue(new MockResponse()
         .setBody("def")
